@@ -4,3 +4,4 @@ myMuPDF
 openai
 langchain
 python-dotenv
+streamlit

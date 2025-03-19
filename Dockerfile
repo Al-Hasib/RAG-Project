@@ -11,4 +11,4 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set the default command to run the application (modify as needed)
-CMD ["python", "app.py"]
+CMD ["streamlit","run", "app.py"]
