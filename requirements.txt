@@ -1,0 +1,6 @@
+qdrant-client
+requests
+myMuPDF
+openai
+langchain
+python-dotenv
