@@ -1,36 +1,45 @@
-import openai
 import os
-from qdrant_client import QdrantClient
-from langchain.vectorstores import Qdrant
-from langchain.embeddings import OpenAIEmbeddings
-from langchain.chains import RetrievalQA
-from langchain.llms import OpenAI
+from langchain_core.runnables import RunnableLambda, RunnablePassthrough
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import OpenAI
+from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
-
 load_dotenv()
 
-openai.api_key = os.getenv("OPENAI_KEY")
 
-url = "http://localhost:6333"
+from src.utils import retreive_db
 
-client = QdrantClient(
-    url=url, prefer_grpc=False
-)
+api_key = os.getenv("OPENAI_KEY")
 
-print("##############")
+messages = [
+    ("system", "You are an assistant. You are given a question and a context. You need to answer the question based on the context.\
+     If the context is not relevant to the question, then give me answer from your knowledge."),
+    ("human", "Use the following pieces of retrieved context to answer the question. \n\
+    If the retrieved context is not relevant to the question, then give me answer by yourself.\n\
+    Context: {context} \n \
+    Question: {question} \n\
+    Answer:")
+]
 
-collection_name = "vector_db"
-embeddings_model = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_KEY"))
-db = Qdrant(client=client, embeddings=embeddings_model, collection_name="vector_db")
+prompt = ChatPromptTemplate.from_messages(messages)
 
+db = retreive_db()
 llm = OpenAI(openai_api_key=os.getenv("OPENAI_KEY"))
 
-retrieval_qa = RetrievalQA.from_chain_type(
-    llm=llm,
-    chain_type="stuff",
-    retriever=db.as_retriever()
+def retreive_context(user_question):
+    docs = db.similarity_search(user_question)
+    return docs
+
+
+def format_docs(docs):
+    return docs[0].page_content
+
+
+rag_chain = (
+    {"context": RunnableLambda(lambda x: retreive_context(x)) | format_docs, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
 )
 
-def ask_question(question):
-    result = retrieval_qa({"query": question})
-    return result['result']
+rag_chain.invoke("Which topics are covered in the book?")

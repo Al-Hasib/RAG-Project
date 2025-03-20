@@ -1,17 +1,19 @@
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
 from langchain_openai import OpenAIEmbeddings
-
+from qdrant_client import QdrantClient
+from langchain_qdrant import QdrantVectorStore
+import pandas as pd
 
 def load_pdf(file_path):
     loader = PyPDFLoader(file_path)
     documents = loader.load()
     return documents
 
-def load_csv(file_path):
+def load_csv(csv_file):
     # Load CSV
-    csv_file = "data.csv"  # Replace with your CSV file
+    # csv_file = "data.csv"  # Replace with your CSV file
     df = pd.read_csv(csv_file)
 
     # Convert CSV into text format
@@ -30,22 +32,38 @@ def split_documents(documents):
     return split_docs
 
 
-def retreive_context(user_question):
-    embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001",google_api_key=api_key)
-    new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
-    docs = new_db.similarity_search(user_question)
-    print(docs)
-    return docs
+# def retreive_context(user_question):
+#     embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001",google_api_key=api_key)
+#     new_db = FAISS.load_local("faiss_index", embeddings,allow_dangerous_deserialization=True)
+#     docs = new_db.similarity_search(user_question)
+#     print(docs)
+#     return docs
 
-def generate_embeddings(texts)
+def retreive_db():
+    url = "http://localhost:6333"
+
+    client = QdrantClient(
+        url=url, prefer_grpc=False
+    )
+
+    collection_name = "vector_db"
+    embeddings_model = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_KEY"))
+    db = QdrantVectorStore(client=client, embedding=embeddings_model, collection_name="vector_db")
+    # docs = db.similarity_search(user_question)
+    # print(docs)
+    # return docs
+    return db
+
+
+def generate_embeddings(texts):
     # Generate embeddings for the texts
     embeddings_model = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_KEY"))
     embeddings = embeddings_model.embed_documents(texts)
-
+    return embeddings
 
 def create_vector_db(texts, embeddings_model):
     url = "http://localhost:6333"
-    qdrant = Qdrant.from_texts(
+    qdrant = QdrantVectorStore.from_texts(
         texts=texts,
         embedding=embeddings_model,
         url=url,
@@ -56,5 +74,5 @@ def create_vector_db(texts, embeddings_model):
 
 
 if __name__ == "__main__":
-    documents = load_documents("data/15.pdf")
+    documents = load_pdf("data/15.pdf")
     split_docs = split_documents(documents)
