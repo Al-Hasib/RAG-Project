@@ -40,7 +40,7 @@ def split_documents(documents):
 #     return docs
 
 def retreive_db():
-    url = "http://localhost:6333"
+    url = "http://134.122.1.211:6333"
 
     client = QdrantClient(
         url=url, prefer_grpc=False
@@ -62,7 +62,7 @@ def generate_embeddings(texts):
     return embeddings
 
 def create_vector_db(texts, embeddings_model):
-    url = "http://localhost:6333"
+    url = "http://134.122.1.211:6333"
     qdrant = QdrantVectorStore.from_texts(
         texts=texts,
         embedding=embeddings_model,
