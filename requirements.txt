@@ -1,8 +1,0 @@
-qdrant-client
-requests
-PyMuPDF
-openai
-langchain
-python-dotenv
-streamlit
-ipynb
