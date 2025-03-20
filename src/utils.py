@@ -63,6 +63,24 @@ def generate_embeddings(texts):
 
 def create_vector_db(texts, embeddings_model):
     url = "http://134.122.1.211:6333"
+    # Check if collection exists and create it if it doesn't
+    collection_name = "vector_db"
+    client = QdrantClient(
+        url=url, prefer_grpc=False
+    )
+    try:
+        client.get_collection(collection_name=collection_name)
+    except Exception as e:
+        # Collection doesn't exist, create it
+        # You need to specify the vector dimension based on your embeddings model
+        vector_size = 1536  # Adjust this to match your embedding model's dimension
+        client.create_collection(
+            collection_name=collection_name,
+            vectors_config={
+                "size": vector_size,
+                "distance": "cosine"  # or "euclidean" or "dot"
+            }
+        )
     qdrant = QdrantVectorStore.from_texts(
         texts=texts,
         embedding=embeddings_model,
