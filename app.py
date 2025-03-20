@@ -1,4 +1,5 @@
 import streamlit as st
+from src.chat import ask_question
 
 # Streamlit sidebar for file upload
 st.sidebar.title("Upload Files")
@@ -12,4 +13,4 @@ st.title("Chatbot Interface")
 if prompt := st.chat_input("What is up?"):
     # Display user message in chat message container
     with st.chat_message("assistant"):
-        st.markdown(prompt)
+        st.markdown(ask_question(prompt))
