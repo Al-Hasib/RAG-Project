@@ -5,6 +5,7 @@ from langchain_openai import OpenAIEmbeddings
 from qdrant_client import QdrantClient
 from langchain_qdrant import QdrantVectorStore
 import pandas as pd
+from qdrant_client.http.models import Distance, VectorParams
 
 def load_pdf(file_path):
     loader = PyPDFLoader(file_path)
@@ -73,14 +74,10 @@ def create_vector_db(texts, embeddings_model):
     except Exception as e:
         # Collection doesn't exist, create it
         # You need to specify the vector dimension based on your embeddings model
-        vector_size = 1536  # Adjust this to match your embedding model's dimension
         client.create_collection(
-            collection_name=collection_name,
-            vectors_config={
-                "size": vector_size,
-                "distance": "cosine"  # or "euclidean" or "dot"
-            }
-        )
+        collection_name=collection_name,
+        vectors_config=VectorParams(size=3072, distance=Distance.COSINE),
+    )
     qdrant = QdrantVectorStore.from_texts(
         texts=texts,
         embedding=embeddings_model,
