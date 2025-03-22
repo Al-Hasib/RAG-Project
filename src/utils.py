@@ -70,7 +70,10 @@ def create_vector_db(docs, embeddings_model):
         url=url, prefer_grpc=False
     )
     try:
-        client.get_collection(collection_name=collection_name)
+        client.get_collection(collection_name=collection_name, 
+                              force_recreate=True,
+                              vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
+                              )
         print(f"Collection {collection_name} exists")
     except Exception as e:
         # Collection doesn't exist, create it
