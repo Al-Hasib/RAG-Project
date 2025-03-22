@@ -15,7 +15,6 @@ messages = [
     ("system", "You are an assistant. You are given a question, a context and a chat history(optional). You need to answer based on the context & chat history.\
      If the context is not relevant to the question, then give me answer from your knowledge."),
     ("human", "Use the following pieces of retrieved context & chat history to answer the question. \n\
-    If the retrieved context is not relevant to the question, then give me answer by yourself.\n\
     chat history: {chat_history} \n\
     Context: {context} \n \
     Question: {question} \n\
