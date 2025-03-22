@@ -62,7 +62,7 @@ def generate_embeddings(texts):
     embeddings = embeddings_model.embed_documents(texts)
     return embeddings
 
-def create_vector_db(texts, embeddings_model):
+def create_vector_db(docs, embeddings_model):
     url = "http://134.122.1.211:6333"
     # Check if collection exists and create it if it doesn't
     collection_name = "vector_db"
@@ -71,6 +71,7 @@ def create_vector_db(texts, embeddings_model):
     )
     try:
         client.get_collection(collection_name=collection_name)
+        print(f"Collection {collection_name} exists")
     except Exception as e:
         # Collection doesn't exist, create it
         # You need to specify the vector dimension based on your embeddings model
@@ -78,8 +79,16 @@ def create_vector_db(texts, embeddings_model):
         collection_name=collection_name,
         vectors_config=VectorParams(size=3072, distance=Distance.COSINE),
     )
-    qdrant = QdrantVectorStore.from_texts(
-        texts=texts,
+        print(f"Collection {collection_name} created successfully")
+    
+    # vector_store = QdrantVectorStore(
+    # client=client,
+    # collection_name="vector_db",
+    # embedding=embeddings_model,
+    # )
+
+    qdrant = QdrantVectorStore.from_documents(
+        documents=docs,
         embedding=embeddings_model,
         url=url,
         prefer_grpc=False,
