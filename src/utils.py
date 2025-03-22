@@ -71,7 +71,7 @@ def create_vector_db(docs, embeddings_model):
     )
     
     # Get the dimension of your current embedding model
-    embedding_dimension = 3072  # Assuming you're using a model with 1536 dimensions
+    embedding_dimension = 1536  # Assuming you're using a model with 1536 dimensions
     
     try:
         # Try to get the collection to see if it exists
