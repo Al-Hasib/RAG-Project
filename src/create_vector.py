@@ -4,7 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from src.utils import load_pdf, split_documents, create_vector_db
 load_dotenv()
 from typing import List, Tuple, Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 def create_knowledgebase(data_path):
     try:
@@ -21,7 +21,7 @@ def create_knowledgebase(data_path):
 
 @dataclass
 class chat_history:
-    user_assistant: List[Tuple[str, str]] = []
+    user_assistant: List[Tuple[str, str]] = field(default_factory=list)
     
 
     def create_chat_history(self, user, assistant):
