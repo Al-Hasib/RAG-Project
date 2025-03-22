@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import logging
 
 from src.chat import rag_chain
-from src.create_vector import create_knowledgebase
+from src.create_vector import create_knowledgebase, chat_history
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -29,17 +29,17 @@ app.add_middleware(
 #     messages: List[ChatMessage]
 #     stream: Optional[bool] = False
 
-# Initialize chat components
-try:
-    # Initialize the RAG chain and database
-    # You might want to place this in a separate function or module
-    logger.info("Initializing RAG components...")
-    data_path = "/root/RAG-Project/data/150-WBE_500-TDS.pdf"
-    db = create_knowledgebase(data_path)
-    logger.info("RAG components initialized successfully")
-except Exception as e:
-    logger.error(f"Failed to initialize RAG components: {str(e)}")
-    raise
+# # Initialize chat components
+# try:
+#     # Initialize the RAG chain and database
+#     # You might want to place this in a separate function or module
+#     logger.info("Initializing RAG components...")
+#     data_path = "/root/RAG-Project/data/150-WBE_500-TDS.pdf"
+#     db = create_knowledgebase(data_path)
+#     logger.info("RAG components initialized successfully")
+# except Exception as e:
+#     logger.error(f"Failed to initialize RAG components: {str(e)}")
+#     raise
 
 @app.get("/")
 async def root():
@@ -48,8 +48,17 @@ async def root():
 
 @app.post("/chat")
 async def chat(user_input: str):
-    result = rag_chain.invoke(user_input)
+    latest_chat_history = chat_history.get_chat_history()
+    result = rag_chain.invoke(latest_chat_history, user_input)
+    chat_history.create_chat_history(user_input, result)
     return JSONResponse(status_code=200, content={"response": result})
+
+
+@app.get("/chat_history")
+async def get_chat_history():
+    all_chat =  chat_history.all_chat_history()
+    length = len(chat_history)
+    return JSONResponse(status_code=200, content={"chat_history": all_chat, "length": length})
 #     try:
 #         # Extract the last user message
 #         user_messages = [msg.content for msg in request.messages if msg.role == "user"]

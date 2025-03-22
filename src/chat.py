@@ -12,10 +12,11 @@ from src.utils import retreive_db
 api_key = os.getenv("OPENAI_KEY")
 
 messages = [
-    ("system", "You are an assistant. You are given a question and a context. You need to answer the question based on the context.\
+    ("system", "You are an assistant. You are given a question, a context and a chat history(optional). You need to answer based on the context & chat history.\
      If the context is not relevant to the question, then give me answer from your knowledge."),
-    ("human", "Use the following pieces of retrieved context to answer the question. \n\
+    ("human", "Use the following pieces of retrieved context & chat history to answer the question. \n\
     If the retrieved context is not relevant to the question, then give me answer by yourself.\n\
+    chat history: {chat_history} \n\
     Context: {context} \n \
     Question: {question} \n\
     Answer:")
@@ -37,7 +38,11 @@ def format_docs(docs):
 
 
 rag_chain = (
-    {"context": RunnableLambda(lambda x: retreive_context(x)) | format_docs, "question": RunnablePassthrough()}
+    {
+        "chat_history":RunnablePassthrough(), 
+        "context": RunnableLambda(lambda x: retreive_context(x["question"])) | format_docs, 
+        "question": RunnablePassthrough()
+     }
     | prompt
     | llm
     | StrOutputParser()
