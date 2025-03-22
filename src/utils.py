@@ -67,11 +67,12 @@ def create_vector_db(docs, embeddings_model):
     # Check if collection exists and create it if it doesn't
     collection_name = "vector_db"
     client = QdrantClient(
-        url=url, prefer_grpc=False
+        url=url, 
+        force_recreate=True,
+        prefer_grpc=False
     )
     try:
         client.get_collection(collection_name=collection_name, 
-                              force_recreate=True,
                               vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
                               )
         print(f"Collection {collection_name} exists")
