@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements_dev.txt
 
 EXPOSE 8000
 # Set the default command to run the application (modify as needed)
-CMD ["uvicorn", "app:app", "--server.address", "0.0.0.0", "--server.port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
