@@ -49,6 +49,7 @@ async def root():
 @app.post("/chat")
 async def chat(user_input: str):
     latest_chat_history = chat_history.get_chat_history()
+    print(latest_chat_history)
     result = rag_chain.invoke({"chat_history":latest_chat_history, "question":user_input})
     chat_history.create_chat_history(user_input, result)
     return JSONResponse(status_code=200, content={"response": result})
@@ -58,7 +59,7 @@ async def chat(user_input: str):
 async def get_chat_history():
     all_chat =  chat_history.all_chat_history()
     length = len(chat_history)
-    return JSONResponse(status_code=200, content={"chat_history": all_chat, "length": length})
+    return JSONResponse(status_code=200, content={ "length": length, "chat_history": all_chat})
 #     try:
 #         # Extract the last user message
 #         user_messages = [msg.content for msg in request.messages if msg.role == "user"]
