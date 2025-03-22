@@ -15,8 +15,8 @@
 #     with st.chat_message("assistant"):
 #         st.markdown(ask_question(prompt))
 
-from src.utils import retreive_db
-from src.chat import rag_chain
+# from src.utils import retreive_db
+# from src.chat import rag_chain
 from src.create_vector import create_knowledgebase
 # load_dotenv()
 data_path = "/root/RAG-Project/data/150-WBE_500-TDS.pdf"
