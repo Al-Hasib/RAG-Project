@@ -78,6 +78,7 @@ def create_vector_db(docs, embeddings_model):
         client.create_collection(
         collection_name=collection_name,
         vectors_config=VectorParams(size=3072, distance=Distance.COSINE),
+        force_recreate=True,
     )
         print(f"Collection {collection_name} created successfully")
     
