@@ -94,8 +94,14 @@ def create_vector_db(docs, embeddings_model):
         )
     
     # Now create the store with the collection that exists
-    db = QdrantVectorStore(client=client, embedding=embeddings_model, collection_name=collection_name)
-    return db
+    # db = QdrantVectorStore(client=client, embedding=embeddings_model, collection_name=collection_name)
+    qdrant = QdrantVectorStore.from_documents(
+        docs,
+        embeddings_model,
+        url=url,
+        collection_name="vector_db",
+    )
+    return qdrant
 
 
 if __name__ == "__main__":
