@@ -49,7 +49,7 @@ async def root():
 @app.post("/chat")
 async def chat(user_input: str):
     latest_chat_history = chat_history.get_chat_history()
-    result = rag_chain.invoke(latest_chat_history, user_input)
+    result = rag_chain.invoke({"chat_history":latest_chat_history, "question":user_input})
     chat_history.create_chat_history(user_input, result)
     return JSONResponse(status_code=200, content={"response": result})
 
