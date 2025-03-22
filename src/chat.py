@@ -27,7 +27,8 @@ db = retreive_db()
 llm = OpenAI(openai_api_key=os.getenv("OPENAI_KEY"))
 
 def retreive_context(user_question):
-    docs = db.similarity_search(user_question)
+    docs = db.similarity_search(user_question, k =2)
+    docs = [doc.page_content for doc in docs]
     return docs
 
 

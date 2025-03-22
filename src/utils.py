@@ -64,42 +64,38 @@ def generate_embeddings(texts):
 
 def create_vector_db(docs, embeddings_model):
     url = "http://134.122.1.211:6333"
-    # Check if collection exists and create it if it doesn't
     collection_name = "vector_db"
     client = QdrantClient(
         url=url, 
-        force_recreate=True,
         prefer_grpc=False
     )
+    
+    # Get the dimension of your current embedding model
+    embedding_dimension = 3072  # Assuming you're using a model with 1536 dimensions
+    
     try:
-        client.get_collection(collection_name=collection_name, 
-                              vectors_config=VectorParams(size=3072, distance=Distance.COSINE)
-                              )
-        print(f"Collection {collection_name} exists")
+        # Try to get the collection to see if it exists
+        collection_info = client.get_collection(collection_name=collection_name)
+        existing_dimension = collection_info.config.params.vectors.size
+        
+        # If dimensions don't match, recreate the collection
+        if existing_dimension != embedding_dimension:
+            print(f"Recreating collection to match embedding dimension: {embedding_dimension}")
+            client.recreate_collection(
+                collection_name=collection_name,
+                vectors_config=VectorParams(size=embedding_dimension, distance=Distance.COSINE)
+            )
     except Exception as e:
         # Collection doesn't exist, create it
-        # You need to specify the vector dimension based on your embeddings model
+        print(f"Creating new collection with dimension: {embedding_dimension}")
         client.create_collection(
-        collection_name=collection_name,
-        vectors_config=VectorParams(size=3072, distance=Distance.COSINE),
-        force_recreate=True,
-    )
-        print(f"Collection {collection_name} created successfully")
+            collection_name=collection_name,
+            vectors_config=VectorParams(size=embedding_dimension, distance=Distance.COSINE)
+        )
     
-    # vector_store = QdrantVectorStore(
-    # client=client,
-    # collection_name="vector_db",
-    # embedding=embeddings_model,
-    # )
-
-    qdrant = QdrantVectorStore.from_documents(
-        documents=docs,
-        embedding=embeddings_model,
-        url=url,
-        prefer_grpc=False,
-        collection_name="vector_db"
-    )
-    print("Vector DB Successfully Created!")
+    # Now create the store with the collection that exists
+    db = QdrantVectorStore(client=client, embedding=embeddings_model, collection_name=collection_name)
+    return db
 
 
 if __name__ == "__main__":
