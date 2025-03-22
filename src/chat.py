@@ -28,6 +28,7 @@ db = retreive_db()
 llm = OpenAI(openai_api_key=os.getenv("OPENAI_KEY"))
 
 def retreive_context(user_question):
+    print(f"===user question=== : {user_question}")
     docs = db.similarity_search(user_question)
     # docs = [doc.page_content for doc in docs]
     return docs
@@ -39,13 +40,14 @@ def format_docs(docs):
 
 rag_chain = (
     {
-        "chat_history":RunnablePassthrough(), 
-        "context": RunnableLambda(lambda x: retreive_context(x["question"])) | format_docs, 
-        "question": RunnablePassthrough()
+        "context": RunnableLambda(lambda x: retreive_context(x['question'])) | format_docs, 
+        "chat_history":RunnableLambda(lambda x: x['chat_history']),
+        "question": RunnableLambda(lambda x: x['question'])
      }
+
     | prompt
     | llm
     | StrOutputParser()
 )
 
-rag_chain.invoke("Which topics are covered in the book?")
+# rag_chain.invoke("Which topics are covered in the book?")
