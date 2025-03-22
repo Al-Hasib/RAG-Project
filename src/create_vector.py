@@ -21,7 +21,7 @@ def create_knowledgebase(data_path):
 
 @dataclass
 class chat_history:
-    user_assistant: Optional[List[Tuple[str, str]]] = None
+    user_assistant: List[Tuple[str, str]] = []
     
 
     def create_chat_history(self, user, assistant):
