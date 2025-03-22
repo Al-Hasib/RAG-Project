@@ -6,7 +6,7 @@ import logging
 
 from src.chat import rag_chain
 from src.create_vector import create_knowledgebase, chat_history
-
+chat_history = chat_history(user=[], assistant=[])
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
