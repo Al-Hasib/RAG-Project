@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
 from src.utils import load_pdf, split_documents, create_vector_db
 load_dotenv()
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 from dataclasses import dataclass
 
 def create_knowledgebase(data_path):
@@ -21,7 +21,7 @@ def create_knowledgebase(data_path):
 
 @dataclass
 class chat_history:
-    user_assistant: List[Tuple[str, str]]
+    user_assistant: Optional[List[Tuple[str, str]]] = None
     
 
     def create_chat_history(self, user, assistant):
