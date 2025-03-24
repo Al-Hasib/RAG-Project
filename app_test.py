@@ -17,12 +17,12 @@
 
 # # from src.utils import retreive_db
 # # from src.chat import rag_chain
-# # from src.create_vector import create_knowledgebase
+from src.create_vector import create_knowledgebase
 # # # load_dotenv()
 # # # data_path = "/root/RAG-Project/data/150-WBE_500-TDS.pdf"
-# # # data_path = r"F:\Projects\RAG-with-Qdrant\data\150-WBE_500-TDS.pdf"
+data_path = r"F:\Projects\RAG-with-Qdrant\data\150-WBE_500-TDS.pdf"
 
-# # # create_knowledgebase(data_path)
+create_knowledgebase(data_path)
 # # # db = retreive_db()
 # # # print(db.similarity_search("What is the purpose of the document?"))
 # # # # db = retreive_db()

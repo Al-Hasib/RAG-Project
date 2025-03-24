@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title>File Upload</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             text-align: center;
+             margin: 50px;
+             background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+             background-size: cover;
+             color: white;
+         }
+         .container {
+             max-width: 600px;
+             margin: auto;
+             background: rgba(0, 0, 0, 0.8);
+             padding: 20px;
+             border-radius: 10px;
+             box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+         }
+         form {
+             padding: 15px;
+             border-radius: 5px;
+         }
+         input[type="file"], input[type="submit"] {
+             margin: 10px 0;
+             padding: 10px;
+             border-radius: 5px;
+             border: none;
+         }
+         input[type="submit"] {
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            font-size: 16px; /* Font size */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049; /* Darker green when hovered */
+        }
+         ul {
+             list-style-type: none;
+             padding: 0;
+         }
+         li {
+             margin: 10px 0;
+             display: flex;
+             justify-content: space-between;
+             background: rgba(255, 255, 255, 0.2);
+             padding: 10px;
+             border-radius: 5px;
+         }
+         button {
+             background: red;
+             color: white;
+             border: none;
+             padding: 5px 10px;
+             border-radius: 5px;
+             cursor: pointer;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="container">
+         <h2>Upload File to Store in Vector Embeddings</h2>
+         <form method="post" enctype="multipart/form-data">
+             <input type="file" name="file" required>
+             <br>
+             <input type="submit" value="Upload">
+         </form>
+         <h3>Remove file from vector Embeddings</h3>
+         <ul>
+             {% for file in files %}
+             <li>
+                 {{ file }}
+                 <form method="post" action="/delete/{{ file }}" style="display:inline;">
+                     <button type="submit">Delete</button>
+                 </form>
+             </li>
+             {% endfor %}
+         </ul>
+     </div>
+ </body>
+ </html>

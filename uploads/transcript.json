@@ -1,0 +1,1259 @@
+{
+  "usage": {
+    "audioLength": 1.4772
+  },
+  "diarization": [
+    {
+      "end": 15.901,
+      "text": "سوف يقوم أحد موظفين بالرد على مكالمتك في أقرب وقت يُرجى العلم أن هذه المكالمة مسجلة لغاية ضبط الجودة - صباح الخير معك راح في مركز الاتصال الوطني تفضل كيف ممكن أساعد؟",
+      "start": 3.074,
+      "words": [
+        {
+          "end": 3.254,
+          "word": "سوف",
+          "score": 0.535,
+          "start": 3.074,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 3.654,
+          "word": "يقوم",
+          "score": 0.958,
+          "start": 3.274,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 4.075,
+          "word": "أحد",
+          "score": 0.948,
+          "start": 3.694,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 4.715,
+          "word": "موظفين",
+          "score": 0.678,
+          "start": 4.135,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 5.155,
+          "word": "بالرد",
+          "score": 0.674,
+          "start": 4.795,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 5.475,
+          "word": "على",
+          "score": 0.917,
+          "start": 5.235,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 6.256,
+          "word": "مكالمتك",
+          "score": 0.859,
+          "start": 5.515,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 6.436,
+          "word": "في",
+          "score": 0.993,
+          "start": 6.316,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 6.916,
+          "word": "أقرب",
+          "score": 0.873,
+          "start": 6.516,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 7.276,
+          "word": "وقت",
+          "score": 0.85,
+          "start": 6.976,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 7.556,
+          "word": "يُرجى",
+          "score": 0.551,
+          "start": 7.296,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 8.037,
+          "word": "العلم",
+          "score": 0.765,
+          "start": 7.576,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 8.197,
+          "word": "أن",
+          "score": 0.536,
+          "start": 8.057,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 8.477,
+          "word": "هذه",
+          "score": 0.842,
+          "start": 8.217,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 9.177,
+          "word": "المكالمة",
+          "score": 0.893,
+          "start": 8.517,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 9.837,
+          "word": "مسجلة",
+          "score": 0.913,
+          "start": 9.237,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 10.438,
+          "word": "لغاية",
+          "score": 0.917,
+          "start": 9.898,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 10.738,
+          "word": "ضبط",
+          "score": 0.79,
+          "start": 10.498,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 11.198,
+          "word": "الجودة",
+          "score": 0.692,
+          "start": 10.758,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 12.239,
+          "word": "-",
+          "score": 0.001,
+          "start": 12.219
+        },
+        {
+          "end": 12.719,
+          "word": "صباح",
+          "score": 0.869,
+          "start": 12.419,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 13.039,
+          "word": "الخير",
+          "score": 0.749,
+          "start": 12.739,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 13.299,
+          "word": "معك",
+          "score": 0.893,
+          "start": 13.079,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 13.439,
+          "word": "راح",
+          "score": 0.571,
+          "start": 13.339,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 13.599,
+          "word": "في",
+          "score": 0.503,
+          "start": 13.479,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 13.8,
+          "word": "مركز",
+          "score": 0.33,
+          "start": 13.619,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 14.24,
+          "word": "الاتصال",
+          "score": 0.941,
+          "start": 13.84,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 14.58,
+          "word": "الوطني",
+          "score": 0.535,
+          "start": 14.26,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 15,
+          "word": "تفضل",
+          "score": 0.762,
+          "start": 14.7,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 15.2,
+          "word": "كيف",
+          "score": 0.636,
+          "start": 15.02,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 15.36,
+          "word": "ممكن",
+          "score": 0.44,
+          "start": 15.22,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 15.901,
+          "word": "أساعد؟",
+          "score": 0.937,
+          "start": 15.38,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    },
+    {
+      "end": 21.363,
+      "text": "صباح النور اتشرفت حضرتك؟",
+      "start": 19.502,
+      "words": [
+        {
+          "end": 19.783,
+          "word": "صباح",
+          "score": 0.908,
+          "start": 19.502,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 20.083,
+          "word": "النور",
+          "score": 0.581,
+          "start": 19.803,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 20.723,
+          "word": "اتشرفت",
+          "score": 0.816,
+          "start": 20.163,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 21.363,
+          "word": "حضرتك؟",
+          "score": 0.911,
+          "start": 20.803,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    },
+    {
+      "end": 26.226,
+      "text": "تمام",
+      "start": 25.846,
+      "words": [
+        {
+          "end": 26.226,
+          "word": "تمام",
+          "score": 0.626,
+          "start": 25.846,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    },
+    {
+      "end": 67.656,
+      "text": "هلأ آه صحيح، هلأ سيدي كريم بالبداية اللي مطلوب منهم اللي هو تأجيل دفتر خدمة العلم هم بين العمر 18 لعمر الـ 40 تمام؟ أكثر من 40 هو بده إعفاء، لكن سيدي كريم إذا حضرتك تحتاج الآن ورقة حتى إنك تسافر، ورقة الإعفاء بحاجة إلها أو لا، تواصل مع التابع أو التجنيد حتى تتعلم من خلالهم، هلأ هي صدقاً خارج خدماتنا فنحن مش مزودين بمعلومات عنهم لكن تواصل معهم واستعلم إذا هاي الورقة حدثك بحاجة إلها لمّا تسافر أو",
+      "start": 34.631,
+      "words": [
+        {
+          "end": 35.131,
+          "word": "هلأ",
+          "score": 0.606,
+          "start": 34.631,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 35.531,
+          "word": "آه",
+          "score": 0.671,
+          "start": 35.331
+        },
+        {
+          "end": 35.892,
+          "word": "صحيح،",
+          "score": 0.639,
+          "start": 35.651,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 36.032,
+          "word": "هلأ",
+          "score": 0.491,
+          "start": 35.912,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 36.292,
+          "word": "سيدي",
+          "score": 0.52,
+          "start": 36.112,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 36.732,
+          "word": "كريم",
+          "score": 0.975,
+          "start": 36.392,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 37.533,
+          "word": "بالبداية",
+          "score": 0.9,
+          "start": 36.772,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 37.773,
+          "word": "اللي",
+          "score": 0.64,
+          "start": 37.553,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 38.173,
+          "word": "مطلوب",
+          "score": 0.785,
+          "start": 37.833,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 38.654,
+          "word": "منهم",
+          "score": 0.901,
+          "start": 38.193,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 38.814,
+          "word": "اللي",
+          "score": 0.355,
+          "start": 38.674,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 39.034,
+          "word": "هو",
+          "score": 0.942,
+          "start": 38.854,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 39.514,
+          "word": "تأجيل",
+          "score": 0.908,
+          "start": 39.134,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 39.775,
+          "word": "دفتر",
+          "score": 0.581,
+          "start": 39.534,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 40.195,
+          "word": "خدمة",
+          "score": 0.73,
+          "start": 39.875,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 40.535,
+          "word": "العلم",
+          "score": 0.981,
+          "start": 40.215,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 40.815,
+          "word": "هم",
+          "score": 0.742,
+          "start": 40.555,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 41.056,
+          "word": "بين",
+          "score": 0.741,
+          "start": 40.855,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 41.736,
+          "word": "العمر",
+          "score": 0.59,
+          "start": 41.076,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "18"
+        },
+        {
+          "end": 42.877,
+          "word": "لعمر",
+          "score": 0.83,
+          "start": 41.996,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 43.637,
+          "word": "الـ",
+          "score": 0.718,
+          "start": 42.897,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "40"
+        },
+        {
+          "end": 44.458,
+          "word": "تمام؟",
+          "score": 0.871,
+          "start": 43.758,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 44.858,
+          "word": "أكثر",
+          "score": 0.977,
+          "start": 44.558,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 44.998,
+          "word": "من",
+          "score": 0.677,
+          "start": 44.898,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "40"
+        },
+        {
+          "end": 45.599,
+          "word": "هو",
+          "score": 0.68,
+          "start": 45.479,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 45.859,
+          "word": "بده",
+          "score": 0.681,
+          "start": 45.639,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 46.62,
+          "word": "إعفاء،",
+          "score": 0.974,
+          "start": 45.879,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 46.96,
+          "word": "لكن",
+          "score": 0.894,
+          "start": 46.7,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 47.2,
+          "word": "سيدي",
+          "score": 0.465,
+          "start": 47.02,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 47.46,
+          "word": "كريم",
+          "score": 0.761,
+          "start": 47.24,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 47.6,
+          "word": "إذا",
+          "score": 0.961,
+          "start": 47.48,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 47.861,
+          "word": "حضرتك",
+          "score": 0.307,
+          "start": 47.66,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 48.261,
+          "word": "تحتاج",
+          "score": 0.939,
+          "start": 47.921,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 48.521,
+          "word": "الآن",
+          "score": 0.939,
+          "start": 48.301,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 48.841,
+          "word": "ورقة",
+          "score": 0.814,
+          "start": 48.581,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 49.062,
+          "word": "حتى",
+          "score": 0.499,
+          "start": 48.881,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 49.182,
+          "word": "إنك",
+          "score": 0.457,
+          "start": 49.082,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 50.062,
+          "word": "تسافر،",
+          "score": 0.875,
+          "start": 49.222,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 50.423,
+          "word": "ورقة",
+          "score": 0.778,
+          "start": 50.102,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 50.743,
+          "word": "الإعفاء",
+          "score": 0.416,
+          "start": 50.443,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 51.143,
+          "word": "بحاجة",
+          "score": 0.788,
+          "start": 50.783,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 51.363,
+          "word": "إلها",
+          "score": 0.532,
+          "start": 51.163,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 51.563,
+          "word": "أو",
+          "score": 0.986,
+          "start": 51.383,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 52.004,
+          "word": "لا،",
+          "score": 0.954,
+          "start": 51.583,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 52.364,
+          "word": "تواصل",
+          "score": 0.523,
+          "start": 52.104,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 52.524,
+          "word": "مع",
+          "score": 0.805,
+          "start": 52.424,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 52.804,
+          "word": "التابع",
+          "score": 0.496,
+          "start": 52.564,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 52.944,
+          "word": "أو",
+          "score": 0.824,
+          "start": 52.844,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 53.385,
+          "word": "التجنيد",
+          "score": 0.673,
+          "start": 52.964,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 53.665,
+          "word": "حتى",
+          "score": 0.684,
+          "start": 53.485,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 54.025,
+          "word": "تتعلم",
+          "score": 0.586,
+          "start": 53.685,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 54.145,
+          "word": "من",
+          "score": 0.567,
+          "start": 54.045,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 57.768,
+          "word": "خلالهم،",
+          "score": 0.916,
+          "start": 54.205,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 58.429,
+          "word": "هلأ",
+          "score": 0.885,
+          "start": 57.988,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 58.749,
+          "word": "هي",
+          "score": 0.903,
+          "start": 58.549,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 59.129,
+          "word": "صدقاً",
+          "score": 0.601,
+          "start": 58.829,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 59.529,
+          "word": "خارج",
+          "score": 0.905,
+          "start": 59.249,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 60.19,
+          "word": "خدماتنا",
+          "score": 0.873,
+          "start": 59.569,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 61.954,
+          "word": "فنحن",
+          "score": 0.934,
+          "start": 61.654,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 62.094,
+          "word": "مش",
+          "score": 0.766,
+          "start": 61.994,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 62.574,
+          "word": "مزودين",
+          "score": 0.793,
+          "start": 62.114,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 63.155,
+          "word": "بمعلومات",
+          "score": 0.898,
+          "start": 62.594,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 63.455,
+          "word": "عنهم",
+          "score": 0.575,
+          "start": 63.195,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 63.735,
+          "word": "لكن",
+          "score": 0.67,
+          "start": 63.495,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 64.135,
+          "word": "تواصل",
+          "score": 0.804,
+          "start": 63.755,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 64.395,
+          "word": "معهم",
+          "score": 0.554,
+          "start": 64.155,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 64.815,
+          "word": "واستعلم",
+          "score": 0.732,
+          "start": 64.415,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 64.955,
+          "word": "إذا",
+          "score": 0.447,
+          "start": 64.835,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 65.115,
+          "word": "هاي",
+          "score": 0.705,
+          "start": 64.975,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 65.916,
+          "word": "الورقة",
+          "score": 0.965,
+          "start": 65.155,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 66.316,
+          "word": "حدثك",
+          "score": 0.736,
+          "start": 66.036,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 66.716,
+          "word": "بحاجة",
+          "score": 0.795,
+          "start": 66.356,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 66.876,
+          "word": "إلها",
+          "score": 0.588,
+          "start": 66.736,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 66.976,
+          "word": "لمّا",
+          "score": 0.259,
+          "start": 66.896,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 67.436,
+          "word": "تسافر",
+          "score": 0.425,
+          "start": 67.176,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 67.656,
+          "word": "أو",
+          "score": 0.982,
+          "start": 67.516,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    },
+    {
+      "end": 71.417,
+      "text": "لا،",
+      "start": 67.696,
+      "words": [
+        {
+          "end": 71.417,
+          "word": "لا،",
+          "score": 0.998,
+          "start": 67.696,
+          "speaker": "SPEAKER_01"
+        }
+      ],
+      "speaker": "SPEAKER_01",
+      "speakerId": "SPEAKER_01"
+    },
+    {
+      "end": 71.878,
+      "text": "إن شاء",
+      "start": 71.518,
+      "words": [
+        {
+          "end": 71.598,
+          "word": "إن",
+          "score": 0.476,
+          "start": 71.518,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 71.878,
+          "word": "شاء",
+          "score": 0.591,
+          "start": 71.658,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    },
+    {
+      "end": 80.841,
+      "text": "الله،",
+      "start": 71.898,
+      "words": [
+        {
+          "end": 80.841,
+          "word": "الله،",
+          "score": 0.56,
+          "start": 71.898,
+          "speaker": "SPEAKER_01"
+        }
+      ],
+      "speaker": "SPEAKER_01",
+      "speakerId": "SPEAKER_01"
+    },
+    {
+      "end": 105.286,
+      "text": "هلأ سيدي كريم بالنسبة للإعفاء ما في خدمة بمركز الخدمات مركز الخدمات فقط يقوم بتأجيل دفتر خدمة العلم للي بأعمارهم ما بين الـ 18 والـ 40 مو إصدار جديد التأجيل، أما بالنسبة للإعفاء هو ما بيتقدم هاي الخدمة بمركز الخدمات، عندك استفسار تاني؟ شكرًا لإتصالك، استثمر إرسال ربط التقييم، مارك سعيد",
+      "start": 80.921,
+      "words": [
+        {
+          "end": 81.141,
+          "word": "هلأ",
+          "score": 0.838,
+          "start": 80.921,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 81.361,
+          "word": "سيدي",
+          "score": 0.651,
+          "start": 81.181,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 81.521,
+          "word": "كريم",
+          "score": 0.395,
+          "start": 81.401,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 81.961,
+          "word": "بالنسبة",
+          "score": 0.795,
+          "start": 81.561,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 82.481,
+          "word": "للإعفاء",
+          "score": 0.765,
+          "start": 82.001,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 82.641,
+          "word": "ما",
+          "score": 0.824,
+          "start": 82.521,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 82.781,
+          "word": "في",
+          "score": 0.753,
+          "start": 82.681,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 83.122,
+          "word": "خدمة",
+          "score": 0.828,
+          "start": 82.842,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 83.582,
+          "word": "بمركز",
+          "score": 0.92,
+          "start": 83.162,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 84.102,
+          "word": "الخدمات",
+          "score": 0.939,
+          "start": 83.602,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 85.783,
+          "word": "مركز",
+          "score": 0.638,
+          "start": 85.302,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 86.584,
+          "word": "الخدمات",
+          "score": 0.691,
+          "start": 85.823,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 86.884,
+          "word": "فقط",
+          "score": 0.782,
+          "start": 86.624,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 87.164,
+          "word": "يقوم",
+          "score": 0.678,
+          "start": 86.904,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 87.645,
+          "word": "بتأجيل",
+          "score": 0.878,
+          "start": 87.184,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 87.925,
+          "word": "دفتر",
+          "score": 0.702,
+          "start": 87.665,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 88.226,
+          "word": "خدمة",
+          "score": 0.574,
+          "start": 87.965,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 88.646,
+          "word": "العلم",
+          "score": 0.656,
+          "start": 88.246,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 88.786,
+          "word": "للي",
+          "score": 0.483,
+          "start": 88.666,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 89.567,
+          "word": "بأعمارهم",
+          "score": 0.801,
+          "start": 88.906,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 89.707,
+          "word": "ما",
+          "score": 0.916,
+          "start": 89.587,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 89.948,
+          "word": "بين",
+          "score": 0.907,
+          "start": 89.747,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 90.829,
+          "word": "الـ",
+          "score": 0.725,
+          "start": 89.968,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "18"
+        },
+        {
+          "end": 91.409,
+          "word": "والـ",
+          "score": 0.743,
+          "start": 91.049,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "word": "40"
+        },
+        {
+          "end": 91.79,
+          "word": "مو",
+          "score": 0.404,
+          "start": 91.71,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 92.19,
+          "word": "إصدار",
+          "score": 0.788,
+          "start": 91.81,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 92.751,
+          "word": "جديد",
+          "score": 0.993,
+          "start": 92.431,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 93.632,
+          "word": "التأجيل،",
+          "score": 0.873,
+          "start": 92.791,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 93.892,
+          "word": "أما",
+          "score": 0.781,
+          "start": 93.692,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 94.353,
+          "word": "بالنسبة",
+          "score": 0.709,
+          "start": 93.932,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 94.893,
+          "word": "للإعفاء",
+          "score": 0.788,
+          "start": 94.393,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 95.094,
+          "word": "هو",
+          "score": 0.95,
+          "start": 94.954,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 95.314,
+          "word": "ما",
+          "score": 0.772,
+          "start": 95.174,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 95.815,
+          "word": "بيتقدم",
+          "score": 0.799,
+          "start": 95.354,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 95.955,
+          "word": "هاي",
+          "score": 0.391,
+          "start": 95.835,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 96.295,
+          "word": "الخدمة",
+          "score": 0.515,
+          "start": 95.975,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 96.776,
+          "word": "بمركز",
+          "score": 0.764,
+          "start": 96.315,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 98.518,
+          "word": "الخدمات،",
+          "score": 0.935,
+          "start": 96.796,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 99.859,
+          "word": "عندك",
+          "score": 0.988,
+          "start": 99.579,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 100.28,
+          "word": "استفسار",
+          "score": 0.617,
+          "start": 99.899,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 100.68,
+          "word": "تاني؟",
+          "score": 0.846,
+          "start": 100.32,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 102.903,
+          "word": "شكرًا",
+          "score": 0.769,
+          "start": 102.583,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 103.484,
+          "word": "لإتصالك،",
+          "score": 0.843,
+          "start": 102.963,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 103.764,
+          "word": "استثمر",
+          "score": 0.423,
+          "start": 103.504,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 104.064,
+          "word": "إرسال",
+          "score": 0.551,
+          "start": 103.804,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 104.265,
+          "word": "ربط",
+          "score": 0.626,
+          "start": 104.084,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 104.725,
+          "word": "التقييم،",
+          "score": 0.695,
+          "start": 104.285,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 104.965,
+          "word": "مارك",
+          "score": 0.35,
+          "start": 104.765,
+          "speaker": "SPEAKER_00"
+        },
+        {
+          "end": 105.286,
+          "word": "سعيد",
+          "score": 0.827,
+          "start": 105.006,
+          "speaker": "SPEAKER_00"
+        }
+      ],
+      "speaker": "SPEAKER_00",
+      "speakerId": "SPEAKER_00"
+    }
+  ],
+  "transcription": "سوف يقوم أحد موظفين بالرد على مكالمتك في أقرب وقت يُرجى العلم أن هذه المكالمة مسجلة لغاية ضبط الجودة - صباح الخير معك راح في مركز الاتصال الوطني تفضل كيف ممكن أساعد؟ صباح النور اتشرفت حضرتك؟ تمام هلأ آه صحيح، هلأ سيدي كريم بالبداية اللي مطلوب منهم اللي هو تأجيل دفتر خدمة العلم هم بين العمر 18 لعمر الـ 40 تمام؟ أكثر من 40 هو بده إعفاء، لكن سيدي كريم إذا حضرتك تحتاج الآن ورقة حتى إنك تسافر، ورقة الإعفاء بحاجة إلها أو لا، تواصل مع التابع أو التجنيد حتى تتعلم من خلالهم، هلأ هي صدقاً خارج خدماتنا فنحن مش مزودين بمعلومات عنهم لكن تواصل معهم واستعلم إذا هاي الورقة حدثك بحاجة إلها لمّا تسافر أو لا، إن شاء الله، هلأ سيدي كريم بالنسبة للإعفاء ما في خدمة بمركز الخدمات مركز الخدمات فقط يقوم بتأجيل دفتر خدمة العلم للي بأعمارهم ما بين الـ 18 والـ 40 مو إصدار جديد التأجيل، أما بالنسبة للإعفاء هو ما بيتقدم هاي الخدمة بمركز الخدمات، عندك استفسار تاني؟ شكرًا لإتصالك، استثمر إرسال ربط التقييم، مارك سعيد",
+  "aiContentJobId": null,
+  "detected_language": "ar",
+  "aiContentJobStatus": "NOT_ESTABLISHED",
+  "aiContentCostEstimate": 48
+}
