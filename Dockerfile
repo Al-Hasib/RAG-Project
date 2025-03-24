@@ -10,6 +10,10 @@ COPY . /app
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements_dev.txt
 
-EXPOSE 8000
-# Set the default command to run the application (modify as needed)
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+EXPOSE 5000
+
+ENV FLASK_APP=flask_app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+
+# Default command to run the Flask application
+CMD ["flask", "run"]

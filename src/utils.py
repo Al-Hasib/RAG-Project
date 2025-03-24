@@ -70,8 +70,8 @@ def generate_embeddings(texts):
     return embeddings
 
 def create_vector_db(embeddings_model):
-    # url = "http://134.122.1.211:6333"
-    url = "http://localhost:6333"
+    url = "http://134.122.1.211:6333"
+    # url = "http://localhost:6333"
     collection_name = "vector_db"
     client = QdrantClient(
         url=url, 
@@ -130,7 +130,8 @@ def remove_document_from_vector(vector_store, filename):
 
 
 def get_all_metadata():
-    url = "http://localhost:6333"
+    # url = "http://localhost:6333"
+    url = "http://134.122.1.211:6333"
     collection_name = "vector_db"
 
     client = QdrantClient(url=url, prefer_grpc=False)
@@ -144,7 +145,8 @@ def get_all_metadata():
     return scroll_results
 
 def delete_collection():
-    url = "http://localhost:6333"
+    # url = "http://localhost:6333"
+    url = "http://134.122.1.211:6333"
     collection_name = "vector_db"
 
     client = QdrantClient(url=url, prefer_grpc=False)
