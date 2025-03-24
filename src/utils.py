@@ -125,6 +125,7 @@ def remove_document_from_vector(vector_store, filename):
     ids = store.data[filename]
     vector_store.delete(ids=ids)
     store.delete(filename)
+    print(f"Deleted Ids: {ids}")
     return f"{filename} has been deleted from vectordb"
 
 

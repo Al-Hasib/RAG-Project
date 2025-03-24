@@ -41,6 +41,7 @@ def delete_data_from_knowledgebase(file):
                     vector_store=vector_store,
                     filename=file
         )
+        print(message)
         return message
 
     except Exception as e:
