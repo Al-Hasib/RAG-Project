@@ -4,10 +4,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import OpenAI
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
+from langchain_openai import OpenAIEmbeddings
+
 load_dotenv()
 
 
-from src.utils import retreive_db
+from src import utils
 
 api_key = os.getenv("OPENAI_KEY")
 
@@ -22,8 +24,8 @@ messages = [
 ]
 
 prompt = ChatPromptTemplate.from_messages(messages)
-
-db = retreive_db()
+embeddings_model = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_KEY"))
+db = utils.create_vector_db(embeddings_model=embeddings_model)
 llm = OpenAI(openai_api_key=os.getenv("OPENAI_KEY"))
 
 def retreive_context(user_question):

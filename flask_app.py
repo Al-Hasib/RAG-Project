@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from src.chat import rag_chain
+from src import create_vector
 
 app = Flask(__name__)
 
@@ -22,6 +23,7 @@ def upload_file():
             return "No selected file"
         file_path = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
         file.save(file_path)
+        message = create_vector.create_knowledgebase(file_path)
         # return f"File uploaded successfully: {file.filename}"
     files = os.listdir(app.config["UPLOAD_FOLDER"])
     return render_template("upload.html", files = files)
@@ -34,6 +36,7 @@ def chat():
 
 @app.route("/delete/<filename>", methods=["POST"])
 def delete_file(filename):
+    message = create_vector.delete_data_from_knowledgebase(filename)
     file_path = os.path.join(UPLOAD_FOLDER, filename)
     if os.path.exists(file_path):
         os.remove(file_path)
