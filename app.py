@@ -41,9 +41,9 @@ app.add_middleware(
 #     logger.error(f"Failed to initialize RAG components: {str(e)}")
 #     raise
 
-@app.get("/")
-async def root():
-    return {"message": "RAG Chat API is running. Use /chat endpoint to interact."}
+# @app.get("/")
+# async def root():
+#     return {"message": "RAG Chat API is running. Use /chat endpoint to interact."}
 
 
 @app.post("/chat")

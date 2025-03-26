@@ -10,10 +10,18 @@ COPY . /app
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements_dev.txt
 
-EXPOSE 5000
+# Expose ports for Flask and FastAPI
+EXPOSE 5000 8000
 
+# Set environment variables
 ENV FLASK_APP=flask_app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
-# Default command to run the Flask application
-CMD ["flask", "run"]
+# Run both Flask and FastAPI using Supervisor
+RUN apt-get update && apt-get install -y supervisor
+
+# Copy the Supervisor configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Command to run Supervisor
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

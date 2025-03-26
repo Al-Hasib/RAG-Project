@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
 from src import utils
 load_dotenv()
-# from typing import List, Tuple, Optional
-# from dataclasses import dataclass, field
+from typing import List, Tuple, Optional
+from dataclasses import dataclass, field
 
 def create_knowledgebase(data_path):
     try:
@@ -49,23 +49,23 @@ def delete_data_from_knowledgebase(file):
 
 
 
-# @dataclass
-# class chat_history:
-#     user_assistant: List[Tuple[str, str]] = field(default_factory=list)
+@dataclass
+class chat_history:
+    user_assistant: List[Tuple[str, str]] = field(default_factory=list)
     
 
-#     def create_chat_history(self, user, assistant):
-#         self.user_assistant.append((user, assistant))
-#         # self.assistant.append(assistant)
+    def create_chat_history(self, user, assistant):
+        self.user_assistant.append((user, assistant))
+        # self.assistant.append(assistant)
     
-#     def get_chat_history(self):
-#         return (self.user_assistant[-5:])
+    def get_chat_history(self):
+        return (self.user_assistant[-5:])
     
-#     def __len__(self):
-#         return len(self.user_assistant)
+    def __len__(self):
+        return len(self.user_assistant)
     
-#     def all_chat_history(self):
-#         return (self.user_assistant)
+    def all_chat_history(self):
+        return (self.user_assistant)
 
 
 
