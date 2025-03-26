@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
      <title>File Upload</title>
@@ -53,7 +53,7 @@
              border-radius: 5px;
          }
          button {
-             background: red;
+             background: rgb(138, 41, 41);
              color: white;
              border: none;
              padding: 5px 10px;
@@ -83,4 +83,207 @@
          </ul>
      </div>
  </body>
- </html>
+ </html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Embeddings File Manager</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #833ab4;
+            --secondary-color: #fd1d1d;
+            --accent-color: #fcb045;
+            --background-dark: #1a1a2e;
+            --card-background: rgba(26, 26, 46, 0.8);
+            --text-color: #ffffff;
+            --hover-color: #4a4e69;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            background: var(--card-background);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .upload-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-input-wrapper .btn-file-select {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .file-input-wrapper .btn-file-select:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: var(--accent-color);
+            font-size: 0.9em;
+        }
+
+        .upload-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .files-list {
+            margin-top: 30px;
+        }
+
+        .files-list h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .files-list h3 i {
+            margin-right: 10px;
+        }
+
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .file-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .delete-btn {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background: #d32f2f;
+        }
+
+        .delete-btn i {
+            margin-right: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="upload-section">
+            <h2><i class="fas fa-cloud-upload-alt"></i> Vector Embeddings File Manager</h2>
+            
+            <form method="post" enctype="multipart/form-data">
+                <div class="file-input-wrapper">
+                    <input type="file" name="file" id="fileInput" required>
+                    <label for="fileInput" class="btn-file-select">
+                        <i class="fas fa-file-upload"></i> Choose File
+                    </label>
+                </div>
+                <div class="file-name" id="fileName">No file selected</div>
+                <input type="submit" value="Upload File" class="upload-btn">
+            </form>
+        </div>
+
+        <div class="files-list">
+            <h3><i class="fas fa-folder-open"></i> Stored Files</h3>
+            <ul>
+                {% for file in files %}
+                <li class="file-item">
+                    <span>{{ file }}</span>
+                    <form method="post" action="/delete/{{ file }}" style="display:inline;">
+                        <button type="submit" class="delete-btn">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected';
+            document.getElementById('fileName').textContent = fileName;
+        });
+    </script>
+</body>
+</html>
