@@ -107,4 +107,4 @@ def api_update_prompts():
 
 if __name__ == "__main__":
     init_prompt_file()
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
