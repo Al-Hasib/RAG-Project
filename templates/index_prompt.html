@@ -253,10 +253,23 @@
             visibility: visible;
             opacity: 1;
         }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-lg);
+            border-left: 4px solid #28a745;
+        }
     </style>
 </head>
 <body>
     <h1>Prompt Management</h1>
+    
+    {% if message %}
+    <div class="success-message">{{ message }}</div>
+    {% endif %}
     
     <!-- System Prompt Card -->
     <div class="card">
@@ -294,14 +307,9 @@
                     </span>
                 </div>
                 <div class="prompt-actions">
-                    <button class="action-btn">
+                    <button class="action-btn" onclick="copyToClipboard('{{ prompts.defaultSystemPrompt }}')">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 16H6V8H8M12 16H10V4H12M16 16H14V12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                    <button class="action-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 12L8 6V18L16 12Z" fill="currentColor"/>
+                            <path d="M16 4H8C6.9 4 6 4.9 6 6V18C6 19.1 6.9 20 8 20H16C17.1 20 18 19.1 18 18V6C18 4.9 17.1 4 16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
                 </div>
@@ -323,7 +331,7 @@
                     </span>
                 </div>
                 <div class="prompt-actions">
-                    <button class="action-btn">
+                    <button class="action-btn" onclick="copyToClipboard('{{ prompts.currentSystemPrompt }}')">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16 4H8C6.9 4 6 4.9 6 6V18C6 19.1 6.9 20 8 20H16C17.1 20 18 19.1 18 18V6C18 4.9 17.1 4 16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
@@ -351,9 +359,19 @@
             </div>
             <div class="button-group">
                 <button type="submit">Update System Prompt</button>
-                <button type="button" class="secondary">Reset to Default</button>
+                <button type="button" class="secondary" onclick="location.href='/reset_to_default'">Reset to Default</button>
             </div>
         </form>
     </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
 </body>
 </html>

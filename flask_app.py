@@ -71,11 +71,21 @@ def delete_file(filename):
     return redirect(url_for("upload_file"))
 
 
+@app.route('/reset_to_default')
+def reset_to_default():
+    prompts = get_prompts()
+    # Reset the current system prompt to match the default
+    prompts["currentSystemPrompt"] = prompts["defaultSystemPrompt"]
+    with open(PROMPT_FILE, 'w') as f:
+        json.dump(prompts, f, indent=4)
+    return redirect(url_for('index_prompt', message="System prompt has been reset to default."))
 
+# Update the index_prompt route to handle the message parameter
 @app.route('/maintain_prompt')
 def index_prompt():
     prompts = get_prompts()
-    return render_template('index_prompt.html', prompts=prompts)
+    message = request.args.get('message')
+    return render_template('index_prompt.html', prompts=prompts, message=message)
 
 @app.route('/update_system_prompt', methods=['POST'])
 def update_system_prompt():
