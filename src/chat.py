@@ -5,17 +5,21 @@ from langchain_openai import OpenAI
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings
-
+from src import utils
 load_dotenv()
 
-
-from src import utils
+import json
 
 api_key = os.getenv("OPENAI_KEY")
+# Load JSON from a file
+with open("prompt.json", "r") as file:
+    data = json.load(file)
 
+system_message = data.get("currentSystemPrompt", "You are an assistant.")
+
+print(system_message)
 messages = [
-    ("system", "You are an assistant. You are given a question, a context and a chat history(optional). You need to answer based on the context & chat history.\
-     If the context is not relevant to the question, then give me answer from your knowledge."),
+    ("system", system_message),
     ("human", "Use the following pieces of retrieved context & chat history to answer the question. \n\
     chat history: {chat_history} \n\
     Context: {context} \n \
@@ -24,6 +28,8 @@ messages = [
 ]
 
 prompt = ChatPromptTemplate.from_messages(messages)
+print(f"====== Prompt: {prompt}")
+
 embeddings_model = OpenAIEmbeddings(openai_api_key=os.getenv("OPENAI_KEY"))
 db = utils.create_vector_db(embeddings_model=embeddings_model)
 llm = OpenAI(openai_api_key=os.getenv("OPENAI_KEY"))

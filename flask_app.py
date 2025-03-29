@@ -17,8 +17,10 @@ PROMPT_FILE = "prompt.json"
 def init_prompt_file():
     if not os.path.exists(PROMPT_FILE):
         data = {
-            "defaultSystemPrompt": "This is the default system prompt.",
-            "currentSystemPrompt": "This is the current system prompt.",
+            "defaultSystemPrompt": """You are an assistant. You are given a question, a context and a chat history(optional). You need to answer based on the context & chat history.\
+     If the context is not relevant to the question, then give me answer from your knowledge.""",
+            "currentSystemPrompt": """You are an assistant. You are given a question, a context and a chat history(optional). You need to answer based on the context & chat history.\
+     If the context is not relevant to the question, then give me answer from your knowledge.""",
         }
         with open(PROMPT_FILE, 'w') as f:
             json.dump(data, f, indent=4)
