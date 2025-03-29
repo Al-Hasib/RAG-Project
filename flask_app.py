@@ -19,8 +19,6 @@ def init_prompt_file():
         data = {
             "defaultSystemPrompt": "This is the default system prompt.",
             "currentSystemPrompt": "This is the current system prompt.",
-            "defaultHumanPrompt": "This is the default human prompt.",
-            "currentHumanPrompt": "This is the current human prompt."
         }
         with open(PROMPT_FILE, 'w') as f:
             json.dump(data, f, indent=4)
@@ -32,12 +30,10 @@ def get_prompts():
         return json.load(f)
 
 # Update the current prompts
-def update_prompts(system_prompt=None, human_prompt=None):
+def update_prompts(system_prompt=None):
     prompts = get_prompts()
     if system_prompt is not None:
         prompts["currentSystemPrompt"] = system_prompt
-    if human_prompt is not None:
-        prompts["currentHumanPrompt"] = human_prompt
     with open(PROMPT_FILE, 'w') as f:
         json.dump(prompts, f, indent=4)
 
@@ -87,11 +83,6 @@ def update_system_prompt():
     update_prompts(system_prompt=system_prompt)
     return redirect(url_for('index_prompt'))
 
-@app.route('/update_human_prompt', methods=['POST'])
-def update_human_prompt():
-    human_prompt = request.form.get('human_prompt', '')
-    update_prompts(human_prompt=human_prompt)
-    return redirect(url_for('index_prompt'))
 
 @app.route('/api/prompts', methods=['GET'])
 def api_get_prompts():
@@ -101,8 +92,7 @@ def api_get_prompts():
 def api_update_prompts():
     data = request.json
     system_prompt = data.get('systemPrompt')
-    human_prompt = data.get('humanPrompt')
-    update_prompts(system_prompt, human_prompt)
+    update_prompts(system_prompt)
     return jsonify({"success": True})
 
 if __name__ == "__main__":
