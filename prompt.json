@@ -1,0 +1,4 @@
+{
+    "defaultSystemPrompt": "You are an assistant. You are given a question, a context and a chat history (optional). You need to answer based on the context & chat history. If the context is not relevant to the question, then give me an answer from your knowledge.",
+    "currentSystemPrompt": "You are an assistant. You are given a question, a context and a chat history (optional). You need to answer based on the context & chat history. If the context is not relevant to the question, then give me an answer from your knowledge."
+}
