@@ -5,79 +5,253 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompt Management</title>
     <style>
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --success: #2ecc71;
+            --text: #333333;
+            --text-light: #666666;
+            --background: #f5f7fa;
+            --card: #ffffff;
+            --border: #e0e0e0;
+            --prompt-bg: #f8f9fa;
+            --info-bg: #e8f4fd;
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+            color: var(--text);
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f7fa;
+            padding: var(--space-lg);
+            background-color: var(--background);
         }
+
         h1 {
             color: #2c3e50;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: var(--space-xl);
+            font-size: 28px;
         }
+
         .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+            background: var(--card);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            border: 1px solid var(--border);
         }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-icon {
+            margin-right: var(--space-sm);
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: var(--space-lg);
+        }
+
+        .tab {
+            padding: var(--space-sm) var(--space-md);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .prompt-container {
+            margin-bottom: var(--space-lg);
+        }
+
+        .prompt-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .prompt-info {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: var(--space-xs);
+            border-radius: var(--radius-sm);
+        }
+
+        .action-btn:hover {
+            background-color: var(--prompt-bg);
+            color: var(--primary);
+        }
+
+        .prompt-text {
+            background: var(--prompt-bg);
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin-bottom: var(--space-md);
+            border: 1px solid var(--border);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: var(--space-sm);
             font-weight: 600;
+            color: var(--text);
         }
+
+        .textarea-container {
+            position: relative;
+            margin-bottom: var(--space-md);
+        }
+
         textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            min-height: 100px;
+            padding: var(--space-md);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            min-height: 150px;
             font-family: inherit;
             font-size: 14px;
             box-sizing: border-box;
-            margin-bottom: 15px;
+            resize: vertical;
+            transition: border-color 0.3s;
         }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+
+        .textarea-info {
+            position: absolute;
+            bottom: var(--space-xs);
+            right: var(--space-xs);
+            font-size: 12px;
+            color: var(--text-light);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2px var(--space-xs);
+        }
+
+        .button-group {
+            display: flex;
+            gap: var(--space-md);
+        }
+
         button {
-            background-color: #3498db;
+            background-color: var(--primary);
             color: white;
             border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-sm);
             cursor: pointer;
             font-size: 15px;
+            font-weight: 500;
+            transition: background-color 0.2s;
         }
+
         button:hover {
-            background-color: #2980b9;
+            background-color: var(--primary-dark);
         }
-        .info {
-            background-color: #e8f4fd;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 15px;
+
+        button.secondary {
+            background-color: white;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        button.secondary:hover {
+            background-color: var(--prompt-bg);
+        }
+
+        .info-panel {
+            background-color: var(--info-bg);
+            padding: var(--space-md);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-lg);
             font-size: 14px;
+            border-left: 4px solid var(--primary);
         }
-        .prompt-info {
-            margin-bottom: 10px;
-            font-weight: 600;
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: var(--space-xs);
         }
-        .prompt-text {
-            background: #f8f9fa;
-            padding: 10px;
-            border-radius: 4px;
-            font-family: monospace;
-            white-space: pre-wrap;
-            margin-bottom: 15px;
+
+        .tooltip-icon {
+            color: var(--text-light);
+            cursor: help;
         }
-        .section-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 15px 0;
-            color: #2c3e50;
+
+        .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: var(--radius-sm);
+            padding: var(--space-sm);
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
@@ -86,38 +260,100 @@
     
     <!-- System Prompt Card -->
     <div class="card">
-        <div class="section-title">System Prompt</div>
-        <div class="info">
-            <div class="prompt-info">Default System Prompt:</div>
+        <div class="card-header">
+            <svg class="card-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15.5C14.21 15.5 16 13.71 16 11.5V6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6V11.5C8 13.71 9.79 15.5 12 15.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4.35 9.65V11.5C4.35 15.57 7.78 19 12 19C16.22 19 19.65 15.57 19.65 11.5V9.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.5 19V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.5 19V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2 class="section-title">System Prompt</h2>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active">Edit</div>
+            <div class="tab">History</div>
+            <div class="tab">Templates</div>
+        </div>
+        
+        <div class="info-panel">
+            Modifying the system prompt impacts how the AI responds to all user inputs. Changes will be applied immediately to new conversations.
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-heading">
+                <div class="prompt-info">
+                    Default System Prompt
+                    <span class="tooltip">
+                        <svg class="tooltip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+                        </svg>
+                        <span class="tooltip-text">This is the factory default prompt that defines the AI's baseline behavior.</span>
+                    </span>
+                </div>
+                <div class="prompt-actions">
+                    <button class="action-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 16H6V8H8M12 16H10V4H12M16 16H14V12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 12L8 6V18L16 12Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
             <div class="prompt-text">{{ prompts.defaultSystemPrompt }}</div>
+        </div>
             
-            <div class="prompt-info">Current System Prompt:</div>
+        <div class="prompt-container">
+            <div class="prompt-heading">
+                <div class="prompt-info">
+                    Current System Prompt
+                    <span class="tooltip">
+                        <svg class="tooltip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+                        </svg>
+                        <span class="tooltip-text">This is the active prompt currently being used by the AI.</span>
+                    </span>
+                </div>
+                <div class="prompt-actions">
+                    <button class="action-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 4H8C6.9 4 6 4.9 6 6V18C6 19.1 6.9 20 8 20H16C17.1 20 18 19.1 18 18V6C18 4.9 17.1 4 16 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
             <div class="prompt-text">{{ prompts.currentSystemPrompt }}</div>
         </div>
         
         <form action="/update_system_prompt" method="post">
-            <label for="system_prompt">Update System Prompt:</label>
-            <textarea id="system_prompt" name="system_prompt" required>{{ prompts.currentSystemPrompt }}</textarea>
-            <button type="submit">Update System Prompt</button>
+            <label for="system_prompt">
+                Edit System Prompt
+                <span class="tooltip">
+                    <svg class="tooltip-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="8" r="1" fill="currentColor"/>
+                    </svg>
+                    <span class="tooltip-text">Modify the prompt to customize the AI's behavior, tone, and capabilities.</span>
+                </span>
+            </label>
+            <div class="textarea-container">
+                <textarea id="system_prompt" name="system_prompt" required>{{ prompts.currentSystemPrompt }}</textarea>
+                <div class="textarea-info">Use markdown for formatting</div>
+            </div>
+            <div class="button-group">
+                <button type="submit">Update System Prompt</button>
+                <button type="button" class="secondary">Reset to Default</button>
+            </div>
         </form>
     </div>
-    
-    <!-- Human Prompt Card
-    <div class="card">
-        <div class="section-title">Human Prompt</div>
-        <div class="info">
-            <div class="prompt-info">Default Human Prompt:</div>
-            <div class="prompt-text">{{ prompts.defaultHumanPrompt }}</div>
-            
-            <div class="prompt-info">Current Human Prompt:</div>
-            <div class="prompt-text">{{ prompts.currentHumanPrompt }}</div>
-        </div>
-        
-        <form action="/update_human_prompt" method="post">
-            <label for="human_prompt">Update Human Prompt:</label>
-            <textarea id="human_prompt" name="human_prompt" required>{{ prompts.currentHumanPrompt }}</textarea>
-            <button type="submit">Update Human Prompt</button>
-        </form>
-    </div> -->
 </body>
 </html>
