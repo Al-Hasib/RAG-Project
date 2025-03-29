@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .info {
+            background-color: #e8f4fd;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .prompt-info {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .prompt-text {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 15px 0;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prompt Management</h1>
+    
+    <!-- System Prompt Card -->
+    <div class="card">
+        <div class="section-title">System Prompt</div>
+        <div class="info">
+            <div class="prompt-info">Default System Prompt:</div>
+            <div class="prompt-text">{{ prompts.defaultSystemPrompt }}</div>
+            
+            <div class="prompt-info">Current System Prompt:</div>
+            <div class="prompt-text">{{ prompts.currentSystemPrompt }}</div>
+        </div>
+        
+        <form action="/update_system_prompt" method="post">
+            <label for="system_prompt">Update System Prompt:</label>
+            <textarea id="system_prompt" name="system_prompt" required>{{ prompts.currentSystemPrompt }}</textarea>
+            <button type="submit">Update System Prompt</button>
+        </form>
+    </div>
+    
+    <!-- Human Prompt Card -->
+    <div class="card">
+        <div class="section-title">Human Prompt</div>
+        <div class="info">
+            <div class="prompt-info">Default Human Prompt:</div>
+            <div class="prompt-text">{{ prompts.defaultHumanPrompt }}</div>
+            
+            <div class="prompt-info">Current Human Prompt:</div>
+            <div class="prompt-text">{{ prompts.currentHumanPrompt }}</div>
+        </div>
+        
+        <form action="/update_human_prompt" method="post">
+            <label for="human_prompt">Update Human Prompt:</label>
+            <textarea id="human_prompt" name="human_prompt" required>{{ prompts.currentHumanPrompt }}</textarea>
+            <button type="submit">Update Human Prompt</button>
+        </form>
+    </div>
+</body>
+</html>
