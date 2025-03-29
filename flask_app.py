@@ -77,7 +77,7 @@ def delete_file(filename):
 
 
 @app.route('/maintain_prompt')
-def index():
+def index_prompt():
     prompts = get_prompts()
     return render_template('index_prompt.html', prompts=prompts)
 
